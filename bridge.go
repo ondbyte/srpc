@@ -31,7 +31,7 @@ type Bridge struct {
 
 // do a req to the other side
 // and get a response
-func (rw *Bridge) Cross(r Req) (Resp, error) {
+func (rw *Bridge) Do(r Req) (Resp, error) {
 	req := &iReq{Id: genId(), Req: r}
 	responseCh := make(chan *rcvResp)
 	defer close(responseCh)

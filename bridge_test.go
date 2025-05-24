@@ -48,7 +48,7 @@ func TestBridge(t *testing.T) {
 	errCh := make(chan error)
 	for range n {
 		go func() {
-			resp, err := b2.Cross(srpc.Req{Method: "ping1"})
+			resp, err := b2.Do(srpc.Req{Method: "ping1"})
 			if err != nil {
 				errCh <- err
 			}
@@ -58,7 +58,7 @@ func TestBridge(t *testing.T) {
 			wg.Done()
 		}()
 		go func() {
-			resp, err := b1.Cross(srpc.Req{Method: "ping2"})
+			resp, err := b1.Do(srpc.Req{Method: "ping2"})
 			if err != nil {
 				errCh <- err
 			}

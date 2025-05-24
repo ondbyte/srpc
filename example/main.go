@@ -39,7 +39,7 @@ func main() {
 		panic(err)
 	}
 	for range 1000 {
-		resp, err := bridge.Cross(srpc.Req{Method: "echo", Body: []byte("body")})
+		resp, err := bridge.Do(srpc.Req{Method: "echo", Body: []byte("body")})
 		if err != nil {
 			panic(err)
 		}
